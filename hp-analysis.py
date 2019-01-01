@@ -31,7 +31,6 @@ for title, path in files.items():
     text = load_standardized_text(path)
     model = NgramText(title, text, NGRAM_SIZE)
 
-    print(title, ":")
-    for i in range(NUM_GEN):
-        print(model.generate_text())
-        print("")
+    print("\n", title, ":\n")
+    print(model.generate_text(), "\n")
+    print(model.generate_max(), "\n")

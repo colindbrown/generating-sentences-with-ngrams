@@ -37,6 +37,21 @@ class NgramText:
                 ngram_model[prior][post] /= count
 
         return ngram_model
+
+    def generate_max(self):
+        n = self.ngram_size
+        gen_text = [None for i in range(n-1)]
+        while True:
+            prior = tuple(gen_text[-(n-1):])
+
+            max_word = max(zip(self.ngram_model[prior].values(), self.ngram_model[prior].keys()))[1]
+            gen_text.append(max_word)
+
+            # detect end of sentence
+            if gen_text[-(n-1):] == [None for i in range(n-1)]:
+                break
+
+        return " ".join(gen_text[n-1:-(n-1)])
     
     def generate_text(self):
         n = self.ngram_size
