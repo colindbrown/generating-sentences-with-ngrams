@@ -1,7 +1,7 @@
 from nltk.util import ngrams
 from nltk.tokenize import sent_tokenize, word_tokenize
 from collections import defaultdict
-import random
+import random, string
 
 class NgramText:
     def __init__(self, title, full_text, n=3):
@@ -38,6 +38,32 @@ class NgramText:
 
         return ngram_model
 
+    def list_to_sentence(self, word_list):
+        n = self.ngram_size
+        # convert list to sentence
+        sentence = ""
+        open_quotes = False
+        no_space = False
+        for i in range(n-1,len(word_list)-(n-1)):
+            word = word_list[i]
+            # handle spaces around quotation marks
+            if word[0] == '"':
+                if open_quotes:
+                    open_quotes = False
+                else:
+                    if i >= n:
+                        sentence += " "
+                    no_space = True
+                    open_quotes = True
+            elif no_space:
+                no_space = False
+            # avoid spaces within tokenized words like "does n't" and before punctuation
+            elif word[0] not in string.punctuation and word != "n't":
+                sentence += " "
+            sentence += word
+        return sentence
+
+
     def generate_max(self):
         n = self.ngram_size
         gen_text = [None for i in range(n-1)]
@@ -48,10 +74,10 @@ class NgramText:
             gen_text.append(max_word)
 
             # detect end of sentence
-            if gen_text[-(n-1):] == [None for i in range(n-1)]:
+            if gen_text[-(n-1):] == [None for i in range(n-1)] or len(gen_text) > 50:
                 break
 
-        return " ".join(gen_text[n-1:-(n-1)])
+        return self.list_to_sentence(gen_text)
     
     def generate_text(self):
         n = self.ngram_size
@@ -73,4 +99,4 @@ class NgramText:
             if gen_text[-(n-1):] == [None for i in range(n-1)]:
                 break
 
-        return " ".join(gen_text[n-1:-(n-1)])
+        return self.list_to_sentence(gen_text)

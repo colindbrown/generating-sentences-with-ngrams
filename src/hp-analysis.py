@@ -1,21 +1,8 @@
 from ngram_text import *
+from text_standardization import *
 
-NGRAM_SIZE = 5
+NGRAM_SIZE = 3
 NUM_GEN = 3
-
-def valid_line(line):
-    line = line.strip()
-    if not line or line.isdigit(): # reject empty lines and page numbers
-        return False
-    elif line.lower().startswith("chapter"): # reject chapter titles
-        return False
-    return True
-    
-
-def load_standardized_text(path):
-    with open(path) as file_text:
-        lines = [line.strip() for line in file_text if valid_line(line)]
-        return " ".join(lines)
 
 files = {
     "Harry Potter and the Sorcerer's Stone": "files/hp1.txt",
