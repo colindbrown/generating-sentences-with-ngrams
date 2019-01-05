@@ -2,7 +2,7 @@ import string
 
 def valid_line(line):
     line = line.strip()
-    if not line or line.isdigit(): # reject empty lines and page numbers
+    if not line or line[0].isdigit(): # reject empty lines and page numbers
         return False
     elif line.lower().startswith("chapter"): # reject chapter titles
         return False
