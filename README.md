@@ -20,7 +20,9 @@ To generate sentences from a text, it first loads in the text and does some basi
 Some resulting sentences:
 
 *"He found the page on Doxys in Gilderoy Lockharts Guide to Household Pests, which was lit instead with the right to give evidence if you can beat up a little pink"* (Harry Potter and the Order of the Phoenix)
+
 *"But Voldemort continues to set up several new offices in response."* (Harry Potter and the Half-Blood Prince)
+
 *"The Selection of Foods by Rats, Humans, and yet I realize I'm actually a third-generation alternative farmer, these fleshy buttons of protein bars and shakes."* (The Omnivore's Dilemma)
 
 # Comparing different size ngrams
@@ -30,6 +32,7 @@ Using just bigrams, the resulting sentences were very original, but not very com
 
 Examples:
 *"Maybe Harry, but they were planning the castle and long, pulled a few days later and pulled his forearm."* (Harry Potter and the Goblet of Fire)
+
 *"In a given day a good or more philosophy and yield potential for giving them to Produce on the bacteria that took a name of local markets with little different from?"* (The Omnivore's Dilemma)
 
 **n = 3 (trigrams)**
@@ -37,6 +40,7 @@ A trigram model does a better job at generating sentences that sounds relatively
 
 Examples:
 *"But they got to tell your grandchildren, that's what you seek stays here to search my office, then!"* (Harry Potter and the Goblet of Fire)
+
 *"Every meal we were better off leaving the plants and animals that the price of whiskey plummeted to the same man doing both."* (The Omnivore's Dilemma)
 
 **n = 4**
@@ -44,6 +48,7 @@ The 4-gram model arguable produces the best generated sentences, as choosing eac
 
 Examples:
 *"'He'd just say Crouch was refusing to come anywhere near him, Professor Karkaroff,' said Moody, his normal eye moving steadily down the list while his magical eye fixed upon his back, a look of deep skepticism behind Dumbledore's back."* (Harry Potter and the Goblet of Fire)
+
 *"Well, food is where and why it began, as the cows and pigs and grass, without getting into specifics about the manure and grubs and composted guts that made the whole dance work."* (The Omnivore's Dilemma)
 
 **n = 5**
@@ -51,14 +56,17 @@ The 5-gram model shows an even more extreme version of the stitching together a 
 
 Examples:
 *"Harry doubted very much if any of the girls who had not been selected had dissolved into tears and were sobbing with their heads on their arms."* (Harry Potter and the Goblet of Fire)
+
 *"My plan had been a cozy winter dinner, but I could see why doing it as fast and as surely as possible was best for all concerned."* (The Omnivore's Dilemma)
 
 
 # Credits
 Trigram model inspiration: [NLP for Hackers Blog](https://nlpforhackers.io/language-models/)
+
 NLTK documentation/tutorial: [nltk book](http://www.nltk.org/book/)
 
 
 Texts used:
 *Harry Potter*, J.K. Rowling [Source](http://www.glozman.com/textpages.html)
+
 *The Omnivore's Dilemma*, Michael Pollan. [Source](https://archive.org/stream/Michael_Pollan-The_Omnivores_Dilemma/Michael_Pollan-The_Omnivores_Dilemma_djvu.txt)
